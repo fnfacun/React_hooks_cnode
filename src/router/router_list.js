@@ -1,42 +1,101 @@
 import React from 'react';
+import qs from 'qs';
 import Index from '../views/index/index';
-import Details from '../views/details/index';
+import Topic from '../views/topic/index';
 import User from '../views/user/index';
 import About from '../views/about/index';
+import GetStart from '../views/getstart/index';
+import NotFount from '../views/notFount/index';
+
+const types = ["all", "good", "share", "ask", "job", "dev"];
 
 const routerList = [
     {
-        path: '/',
+        path: "/",
         exact: true,
-        name: "首页",
-        render: () => {
-            return <Index />
+        render: (props) => {
+            let { search } = props.location;
+            let { tab, page } = qs.parse(search.substring(1));
+            /**
+             * 不为 404 的情况
+             *     1. tab 存在 page 不存在或者为 0 
+             *     2. tab 和 page 都不存在
+             */
+            if(
+                tab === undefined && page === undefined ||
+                types.includes(tab) && (page === undefined || page > 0)
+            ){
+                return <Index {...props} />
+            }
+            return <NotFount />
         }
-    },
-    {
-        path: '/details',
+    },{
+        path: "/topic/:id",
         exact: true,
-        name: "主题详情",
-        render: () => {
-            return <Details />
+        render: (props) => {
+            return <Topic {...props} />
         }
-    },
-    {
-        path: '/user',
+    },{
+        path: "/user/:username",
         exact: true,
         name: "用户详情",
-        render: () => {
-            return <User />
+        render: (props) => {
+            return <User {...props} />
         }
-    },
-    {
-        path: '/about',
+    },{
+        path: "/getstart",
         exact: true,
-        name: "关于",
-        render: () => {
-            return <About />
+        render: (props) => {
+            return <GetStart {...props} />
+        }
+    },{
+        path: "/about",
+        exact: true,
+        render: (props) => {
+            return <About {...props} />
+        }
+    },{
+        path: "",
+        exact: false,
+        render: (props) => {
+            return <NotFount {...props} />
         }
     }
 ];
 
-export default routerList;
+const navs = [
+    {
+        to: "/",
+        name: "首页"
+    },{
+        to: "/getstart",
+        name: "新手入门"
+    },{
+        to: "/about",
+        name: "关于我们"
+    }
+];
+
+const indexNavs = [
+    {
+        to: "/?tab=all",
+        name: "全部"
+    },{
+        to: "/?tab=good",
+        name: "精华"
+    },{
+        to: "/?tab=share",
+        name: "分享"
+    },{
+        to: "/?tab=ask",
+        name: "问答"
+    },{
+        to: "/?tab=job",
+        name: "招聘"
+    },{
+        to: "/?tab=dev",
+        name: "客户端测试"
+    }
+];
+
+export { routerList, navs, indexNavs, types };

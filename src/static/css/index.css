@@ -1,0 +1,83 @@
+/* ----------------------------- public ------------------------------ */
+
+#root, .page {
+    min-height: 100vh;
+}
+.wrap {
+    margin: 0 5px;
+}
+
+/* ----------------------------- header ------------------------------ */
+
+#header {
+    padding: 0;
+}
+#logo {
+    margin: 0;
+    text-align: center;
+}
+
+/* ----------------------------- topic ------------------------------ */
+
+.wrap .topic_list {
+    padding: 0 10px;
+    background-color: white;
+}
+.topic-tag {
+    margin: 0 5px;
+}
+.indexNav {
+    margin-top: 10px;
+}
+.from_now {
+    text-align: right;
+}
+
+/* ----------------------------- footer ------------------------------ */
+
+#footer {
+    padding: 24px 0;
+}
+
+/* ----------------------------- media ------------------------------ */
+
+/* >=576px */
+@media all and (min-width: 576px) {
+    .wrap {
+        margin: 0 5px;
+    }
+}
+/* >=768px */
+@media all and (min-width: 768px) {
+    .wrap {
+        margin: 0 15px;
+    }
+    .wrap .topic_list {
+        padding: 0 20px;
+    }
+}
+/* >=992px */
+@media all and (min-width: 992px) {
+    .wrap {
+        margin: 0 20px;
+    }
+    .wrap .topic_list {
+        padding: 0 20px;
+    }
+}
+/* >=1200px */
+@media all and (min-width: 1200px) {
+    .wrap {
+        width: 980px;
+        margin: 0 auto;
+    }
+    .wrap .topic_list {
+        padding: 0 30px;
+    }
+}
+/* >=1600px */
+@media all and (min-width: 1600px) {
+    .wrap {
+        width: 1200px;
+    }
+}

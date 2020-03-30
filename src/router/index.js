@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
-import routerList from './router_list';
+import { Route, Switch } from 'react-router-dom';
+import { routerList } from './router_list';
 
 export default function IndexRouter(){
     return (
@@ -10,7 +10,9 @@ export default function IndexRouter(){
                     key={index}
                     path={item.path}
                     exact={item.exact}
-                    render={item.render}
+                    render={(props)=>{
+                        return item.render(props);
+                    }}
                 />)
             })}
         </Switch>
