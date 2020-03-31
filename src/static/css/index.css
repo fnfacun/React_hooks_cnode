@@ -1,12 +1,19 @@
 /* ----------------------------- public ------------------------------ */
-
+body {
+    font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif!important;
+}
 #root, .page {
     min-height: 100vh;
 }
 .wrap {
     margin: 0 5px;
 }
-
+img {
+    max-width: 100%;
+}
+h1 {
+    white-space: normal;
+}
 /* ----------------------------- header ------------------------------ */
 
 #header {
@@ -18,7 +25,9 @@
 }
 
 /* ----------------------------- topic ------------------------------ */
-
+#topic .ant-card {
+    margin-top: 10px;
+}
 .wrap .topic_list {
     padding: 0 10px;
     background-color: white;
@@ -31,6 +40,40 @@
 }
 .from_now {
     text-align: right;
+}
+.index-pagination {
+    border-top: 1px solid #f0f0f0;
+    padding: 10px 5px;
+    background: #fff;
+    display: flex;
+}
+.index-pagination>ul {
+    margin: auto;
+}
+
+/* ----------------------------- getStart ------------------------------ */
+
+.markdown-text h2 {
+    font-size: 24.5px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+
+/* ----------------------------- about ------------------------------ */
+.ant-card-head-title a {
+    color: #80bd01;
+}
+.topic_content h3 {
+    font-size: 24.5px;
+    font-weight: bold;
+}
+.about-logoWrap a {
+    color: #778087;
+    font-weight: 500;
+}
+.about-logoWrap a:hover {
+    /* text-decoration: line-through; */
+    text-decoration: underline;
 }
 
 /* ----------------------------- footer ------------------------------ */

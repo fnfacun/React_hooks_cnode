@@ -9,7 +9,11 @@ function IndexNav() {
     let { tab } = qs.parse(search.substring(1));
     let activeIndex = tab === undefined? 0: types.indexOf(tab); 
     return (
-        <Menu className="indexNav" mode="horizontal" defaultSelectedKeys={[activeIndex + ""]}>
+        <Menu 
+            className="indexNav" 
+            mode="horizontal"
+            selectedKeys={[activeIndex + ""]}
+        >
             {indexNavs.map((item, index)=>{
                 return (<Menu.Item key={index}>
                     <Link to={item.to}>{item.name}</Link>

@@ -6,19 +6,40 @@ const http = axios.create({
 });
 
 // 获取主题列表数据
-function useTopicList(){
+function useTopicsList(){
     let dispatch = useDispatch();
     return function(tab="all", page=1, limit=20, mdrender=true) {
         dispatch({
-            type: "TOPIC_LOADING"
+            type: "TOPICS_LOADING"
         });
         http.get(`/topics?tab=${tab}&page=${page}&limit=${limit}&mdrender=${mdrender}`).then(res=>{
             dispatch({
-                type: "TOPIC_LOADOVER",
+                type: "TOPICS_LOADOVER",
                 data: res.data.data
             });
         });
     };
 }
 
-export { useTopicList };
+// 获取主题详情
+function useTopic(){
+    let dispatch = useDispatch();
+    return function(id) {
+        dispatch({
+            type: "TOPIC_LOADING"
+        });
+        http.get(`/topic/${id}`).then(res=>{
+            dispatch({
+                type: "TOPIC_LOADOVER",
+                data: res.data.data
+            });
+        }).catch(error=>{
+            dispatch({
+                type: "TOPIC_ERROR",
+                err_msg: error.response.data.error_msg
+            })
+        })
+    };
+}
+
+export { useTopicsList, useTopic };

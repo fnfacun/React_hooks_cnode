@@ -15,7 +15,7 @@ export default function Header() {
                             <h1 id="logo"><Link to="/">cnode</Link></h1>
                         </Col>
                         <Col xs={18} sm={20} md={22}>
-                            <Menu mode="horizontal" theme="dark" defaultSelectedKeys={[activeIndex + ""]}>
+                            <Menu mode="horizontal" theme="dark" selectedKeys={[activeIndex + ""]}>
                                 {navs.map((item, index)=>{
                                     return (<Menu.Item key={index}>
                                         <Link to={item.to}>{item.name}</Link>

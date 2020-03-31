@@ -1,7 +1,5 @@
-import topic from './topic';
-import user from './user';
+import topics from './topics';  // 主题
+import user from './user';      // 用户
+import topic from './topic'    // 主题详情
 
-export default {
-    topic,
-    user
-}
+export default { topics, user, topic }
