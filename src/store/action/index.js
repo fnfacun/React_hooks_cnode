@@ -42,4 +42,25 @@ function useTopic(){
     };
 }
 
-export { useTopicsList, useTopic };
+// 获取用户详情
+function useUser(){
+    let dispatch = useDispatch();
+    return function(loginname) {
+        dispatch({
+            type: "USER_LOADING"
+        });
+        http.get(`/user/${loginname}`).then(res=>{
+            dispatch({
+                type: "USER_LOADOVER",
+                data: res.data.data
+            });
+        }).catch(err=>{
+            dispatch({
+                type: "USER_ERROR",
+                err_msg: err.response.data.error_msg
+            })
+        })
+    };
+}
+
+export { useTopicsList, useTopic, useUser };

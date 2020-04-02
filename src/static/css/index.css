@@ -59,6 +59,15 @@ h1 {
     border-bottom: 1px solid #eee;
 }
 
+/* ----------------------------- user ------------------------------ */
+
+.user_page .ant-card{
+    margin-top: 10px;
+}
+.user-details {
+    text-align: center;
+}
+
 /* ----------------------------- about ------------------------------ */
 .ant-card-head-title a {
     color: #80bd01;

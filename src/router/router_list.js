@@ -36,7 +36,7 @@ const routerList = [
             return <Topic {...props} />
         }
     },{
-        path: "/user/:username",
+        path: "/user/:loginname",
         exact: true,
         name: "用户详情",
         render: (props) => {

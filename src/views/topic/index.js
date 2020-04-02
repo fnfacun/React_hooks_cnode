@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Alert } from 'antd';
 import { useTopic } from '../../store/action/index';
 import Details from './details';
+import Replies from './replies';
 
 function Topic(){
     let { id } = useParams();
@@ -27,6 +28,7 @@ function Topic(){
             />
         :(<Fragment>
             <Details data={data} loading={loading} />
+            <Replies data={data.replies} loading={loading} />
         </Fragment>)}
     </div>)
 };
